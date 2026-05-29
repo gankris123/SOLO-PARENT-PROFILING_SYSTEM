@@ -510,3 +510,172 @@ require_once __DIR__ . '/includes/config.php';
         </div>
     </div>
 </section>
+<section class="stats-strip text-white text-center">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4 stats-divider-line">
+                <div class="stats-column-box">
+                    <div class="stats-number count-stat mb-2" style="color: #38bdf8 !important;" data-target="1420">0</div>
+                    <div class="stats-label">Active Profiles Tracking</div>
+                </div>
+            </div>
+            <div class="col-md-4 stats-divider-line">
+                <div class="stats-column-box">
+                    <div class="stats-number count-stat mb-2" style="color: #4ade80 !important;" data-target="100">0</div>
+                    <div class="stats-label">Audit Integrity Rating (%)</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-column-box">
+                    <div class="stats-number count-stat mb-2" style="color: #facc15 !important;" data-target="12">0</div>
+                    <div class="stats-label">Active Regional Links</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="section-padding bg-white reveal-element">
+    <div class="container">
+        <div class="text-center mb-5 pb-2">
+            <span class="section-tag">Information Desk</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                                How is personal information protected within this system?
+                            </button>
+                        </h2>
+                        <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                The SPPS infrastructure uses strict session variables, restricted admin access states, and continuous parameter filtering to keep constituent records confidential.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                                What documents are required for registry enrollment?
+                            </button>
+                        </h2>
+                        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Registrants must provide an official affidavit of solo parenthood, child dependency certificates, and proof of residence for verification.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="premium-footer">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="bg-primary text-white rounded-2 d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
+                        <i class="bi bi-people-fill small"></i>
+                    </div>
+                    <h5 class="mb-0 text-white fw-bold" style="font-size: 0.95rem; letter-spacing: 0.5px;">SPPS PORTAL</h5>
+                </div>
+                <p class="small mb-0" style="max-width: 380px; line-height: 1.7; color: rgba(255, 255, 255, 0.65);">
+                    Official administrative system for the local government of Barangay Sankanan. Designed to provide transparent community support workflows.
+                </p>
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <h6 class="footer-header-text mb-3">Contact Support</h6>
+                <div class="d-flex flex-column gap-2">
+                    <a href="tel:+630881234567" class="footer-detail-link d-flex align-items-center gap-2">
+                        <i class="bi bi-telephone text-info"></i> +63 (088) 123-4567
+                    </a>
+                    <a href="mailto:support@sankanan.gov.ph" class="footer-detail-link d-flex align-items-center gap-2">
+                        <i class="bi bi-envelope text-info"></i> support@sankanan.gov.ph
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-header-text mb-3">Desk Hours</h6>
+                <p class="small mb-0" style="line-height: 1.6; color: rgba(255, 255, 255, 0.65);">
+                    <span class="text-white fw-medium">Monday – Friday</span><br>
+                    8:00 AM – 5:00 PM PST
+                </p>
+            </div>
+        </div>
+        <div class="footer-copyright-strip d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <span>&copy; <?= date('Y') ?> Barangay Sankanan Local Government. All Rights Reserved.</span>
+            <span class="fw-semibold px-3 py-1 rounded-pill" style="background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.65);">Version <?= APP_VERSION ?></span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Navbar Scroll Event
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.custom-navbar');
+        if (window.scrollY > 30) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Premium Web API Intersection Observer for Section Reveals
+    const observerOptions = { threshold: 0.08, rootMargin: "0px 0px -20px 0px" };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-element').forEach(el => revealObserver.observe(el));
+
+    // Logarithmic Smooth Stat Counters
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const targetElement = entry.target;
+                const targetNumber = parseInt(targetElement.getAttribute('data-target'), 10);
+                
+                let currentCount = 0;
+                const totalDuration = 1800; 
+                const frameRate = 1000 / 60; 
+                const totalFrames = Math.round(totalDuration / frameRate);
+                let currentFrame = 0;
+
+                function easeOutCubic(t) {
+                    return 1 - Math.pow(1 - t, 3);
+                }
+
+                const countInterval = setInterval(() => {
+                    currentFrame++;
+                    const progress = currentFrame / totalFrames;
+                    const easedProgress = easeOutCubic(progress);
+                    currentCount = Math.round(easedProgress * targetNumber);
+
+                    if (currentFrame >= totalFrames) {
+                        targetElement.innerText = targetNumber.toLocaleString();
+                        clearInterval(countInterval);
+                    } else {
+                        targetElement.innerText = currentCount.toLocaleString();
+                    }
+                }, frameRate);
+
+                observer.unobserve(targetElement);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.count-stat').forEach(stat => counterObserver.observe(stat));
+</script>
+</body>
+</html>
