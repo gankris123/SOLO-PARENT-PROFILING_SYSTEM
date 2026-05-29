@@ -323,3 +323,190 @@ require_once __DIR__ . '/includes/config.php';
             font-size: 0.82rem;
             color: rgba(255, 255, 255, 0.45);
         }
+          </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-uppercase" href="#" style="color: var(--sp-midnight); font-size: 1rem; letter-spacing: 0.5px;">
+            <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-3" style="width: 34px; height: 34px;">
+                <i class="bi bi-people-fill fs-6"></i>
+            </div>
+            <span>SPPS Portal</span>
+        </a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+            <i class="bi bi-list fs-2"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+            <ul class="navbar-nav ms-auto gap-4 align-items-center mt-3 mt-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#benefits">Benefits</a></li>
+                <li class="nav-item"><a class="nav-link" href="#process">Workflow</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                <li class="nav-item ms-lg-2">
+                    <a class="btn-gov-primary py-2 px-4 text-decoration-none d-inline-block" href="<?= BASE_URL ?>/login.php" style="font-size: 0.85rem; padding: 0.65rem 1.6rem !important;">
+                        <i class="bi bi-shield-lock-fill me-2"></i>Admin Console
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5">
+                <div class="d-inline-flex align-items-center gap-2 bg-white border border-slate-200 px-3 py-1.5 rounded-pill mb-4 shadow-sm">
+                    <span class="d-inline-block bg-success rounded-circle" style="width: 6px; height: 6px;"></span>
+                    <span class="fw-bold text-dark" style="font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase;">Official Barangay Sankanan Public Portal</span>
+                </div>
+                <h1 class="display-5 fw-extrabold mb-3" style="font-weight: 800; line-height: 1.15; letter-spacing: -1.8px;">
+                    Empowering Solo Parents Through Clean Digital Records
+                </h1>
+                <p class="text-muted fs-6 mb-4" style="line-height: 1.65; max-width: 520px;">
+                    An advanced, institutional welfare architecture built explicitly to process applications, track dynamic sector dependencies, and manage resource allocations with integrity.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="#about" class="btn-gov-primary d-flex align-items-center gap-2">Explore Portal <i class="bi bi-arrow-down small"></i></a>
+                    <a href="<?= BASE_URL ?>/login.php" class="btn-gov-outline">Access Registry</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-showcase p-4 p-md-5 text-center reveal-element active">
+                    <div class="p-5 bg-light rounded-4 border border-light d-flex flex-column align-items-center justify-content-center">
+                        <div class="bg-white text-primary rounded-circle shadow-sm d-flex align-items-center justify-content-center mb-4" style="width: 84px; height: 84px; border: 1px solid #e2e8f0;">
+                            <i class="bi bi-shield-check-fill fs-1"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">Production Grade Security</h4>
+                        <p class="text-muted small px-lg-3 mb-0" style="line-height: 1.65;">Hardware-accelerated data isolation and strict authentication parameters protect the household tracking records of every constituent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="about" class="section-padding bg-white reveal-element">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-5 mb-5 mb-lg-0">
+                <span class="section-tag">About the Architecture</span>
+                <h2 class="section-title mb-3">Transparent Social Welfare Management</h2>
+                <p class="text-muted mb-0" style="line-height: 1.75; font-size: 0.95rem;">
+                    The Solo Parent Profiling System (SPPS) serves as an administrative anchor for Barangay Sankanan. It eliminates old paper-based tracking by centralizing applications, document reviews, and status auditing into one secure web dashboard.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="p-4 rounded-4 h-100" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                            <div class="text-success mb-3"><i class="bi bi-patch-check-fill fs-1"></i></div>
+                            <h5 class="fw-bold text-dark mb-2">Verified Validation</h5>
+                            <p class="text-muted small mb-0" style="line-height: 1.55;">Eliminates profile processing fraud through multi-stage digital validation checkpoints.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="p-4 rounded-4 h-100" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+                            <div class="text-primary mb-3"><i class="bi bi-lightning-charge-fill fs-1"></i></div>
+                            <h5 class="fw-bold text-dark mb-2">Instant Operations</h5>
+                            <p class="text-muted small mb-0" style="line-height: 1.55;">Accelerates verification times across local sectors to speed up resource provisioning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="section-padding bg-clear reveal-element">
+    <div class="container">
+        <div class="text-center mb-5 pb-2">
+            <span class="section-tag">Key Features</span>
+            <h2 class="section-title mb-2">Engineered to Support Administrators</h2>
+            <p class="text-muted mx-auto mb-0" style="max-width: 540px; font-size: 0.95rem;">Built on centralized data protocols to optimize tracking workflows and reduce administrative work.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="interactive-card">
+                    <div class="card-icon-box bg-primary bg-opacity-10 text-primary"><i class="bi bi-folder-fill"></i></div>
+                    <h5 class="fw-bold text-dark mb-2">Central Registry</h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">Store constituent profiles, contact vectors, and family records inside an encrypted core container.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="interactive-card">
+                    <div class="card-icon-box bg-success bg-opacity-10 text-success"><i class="bi bi-file-earmark-text-fill"></i></div>
+                    <h5 class="fw-bold text-dark mb-2">Requirements Tracking</h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">Monitor active identification cards, birth certificate filings, and validation affidavits without physical filing space limits.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="interactive-card">
+                    <div class="card-icon-box bg-primary bg-opacity-10 text-primary"><i class="bi bi-graph-up-arrow"></i></div>
+                    <h5 class="fw-bold text-dark mb-2">Demographic Metrics</h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.65;">Generate instant statistical overviews of single-parent households to optimize regional financial assistance programs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="benefits" class="section-padding bg-white reveal-element">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="p-4 p-md-5 text-white rounded-4 position-relative overflow-hidden shadow-lg" style="background: linear-gradient(135deg, #0052cc 0%, #002266 100%);">
+                    <h3 class="fw-bold mb-3" style="letter-spacing: -0.5px;">Prioritizing the Community</h3>
+                    <p class="opacity-75 small mb-4" style="line-height: 1.65;">The system supports the community by matching clear profile tracking parameters directly with local government programs.</p>
+                    <ul class="list-unstyled d-grid gap-3 mb-0 opacity-90 small">
+                        <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-white fs-5 mt-n1"></i> <span>Guarantees verified entry into community social welfare aid pipelines.</span></li>
+                        <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-white fs-5 mt-n1"></i> <span>Speeds up identity audits during annual certification distribution phases.</span></li>
+                        <li class="d-flex align-items-start gap-2"><i class="bi bi-check-circle-fill text-white fs-5 mt-n1"></i> <span>Removes repeated paperwork—submit credentials once and keep your parameters securely logged.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <span class="section-tag">Community Benefits</span>
+                <h2 class="section-title mb-3">Ensuring No Single-Parent Family Falls Behind</h2>
+                <p class="text-muted small mb-4" style="line-height: 1.65;">By formalizing data collection processes, this platform allows local government staff to allocate support fairly, guaranteeing resources reach those who qualify.</p>
+                <a href="#process" class="btn-gov-primary text-decoration-none">View Platform Workflow</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="process" class="section-padding bg-clear reveal-element">
+    <div class="container">
+        <div class="text-center mb-5 pb-2">
+            <span class="section-tag">How It Works</span>
+            <h2 class="section-title mb-2">The Profiling Workflow</h2>
+            <p class="text-muted mx-auto mb-0" style="max-width: 500px; font-size: 0.95rem;">A secure, step-by-step pipeline ensuring documentation validity and reliable records.</p>
+        </div>
+        <div class="row g-4 pt-2">
+            <div class="col-md-4">
+                <div class="process-node h-100">
+                    <div class="process-badge">STEP 01</div>
+                    <h5 class="fw-bold text-dark mb-2 mt-2">Information Intake</h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">The intake officer collects household background data and initializes a distinct profile identifier inside the system registry.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-node h-100">
+                    <div class="process-badge" style="background: var(--sp-primary);">STEP 02</div>
+                    <h5 class="fw-bold text-dark mb-2 mt-2">Document Audit</h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">Required document credentials, identification filings, and affidavits are cross-referenced to eliminate entry errors.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="process-node h-100">
+                    <div class="process-badge" style="background: var(--sp-success);">STEP 03</div>
+                    <h5 class="fw-bold text-dark mb-2 mt-2">Verified Profile</h5>
+                    <p class="text-muted small mb-0" style="line-height: 1.6;">The record parameters are locked as an approved account, granting immediate access to ongoing welfare allocation programs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
