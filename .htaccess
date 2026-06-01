@@ -20,3 +20,10 @@ Options -Indexes
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 </IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header always unset X-Frame-Options
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
