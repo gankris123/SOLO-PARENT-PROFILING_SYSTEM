@@ -1,0 +1,13 @@
+{
+    "name": "solo-parent-system/spps",
+    "description": "Solo Parent Profiling System",
+    "type": "project",
+    "require": {
+        "tecnickcom/tcpdf": "^6.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "SPS\\": "includes/"
+        }
+    }
+}
