@@ -113,3 +113,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
+
+    <!-- ===== Step 2: Password ===== -->
+    <div class="card mb-3">
+        <div class="card-header fw-bold">
+            <i class="bi bi-key me-2"></i>Step 2 — Set Admin Password
+        </div>
+        <div class="card-body">
+            <p class="small text-muted">
+                Create or reset an admin account. The password will be securely hashed.
+            </p>
+            <form method="POST">
+                <input type="hidden" name="action" value="set_password">
+                <div class="mb-2">
+                    <label class="form-label small fw-semibold">Username</label>
+                    <input type="text" name="username" class="form-control form-control-sm"
+                           value="admin" required>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label small fw-semibold">New Password</label>
+                    <input type="password" name="password" class="form-control form-control-sm"
+                           placeholder="Minimum 6 characters" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label small fw-semibold">Confirm Password</label>
+                    <input type="password" name="confirm" class="form-control form-control-sm" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-sm">
+                    <i class="bi bi-check-circle me-1"></i> Set Password
+                </button>
+            </form>
+        </div>
+    </div>
