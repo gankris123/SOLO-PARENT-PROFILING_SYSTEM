@@ -145,3 +145,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
+
+    <!-- ===== Step 3: Done ===== -->
+    <div class="card mb-3 border-warning">
+        <div class="card-header fw-bold text-warning">
+            <i class="bi bi-exclamation-triangle me-2"></i>Step 3 — Delete This File
+        </div>
+        <div class="card-body">
+            <p class="small mb-2">
+                After setup is complete, <strong>delete <code>setup.php</code></strong> from your server
+                for security. Leaving it accessible is a security risk.
+            </p>
+            <a href="<?= BASE_URL ?>/login.php" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Go to Login
+            </a>
+        </div>
+    </div>
+
+    <p class="text-center text-muted small mt-4">
+        <?= APP_NAME ?> v<?= APP_VERSION ?>
+    </p>
+</div>
+</body>
+</html>
