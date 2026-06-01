@@ -43,3 +43,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $success = true;
         }
     }
+
+    // ---- Run SQL schema ----
+    if ($action === 'run_sql') {
+        $sqlFile = __DIR__ . '/database.sql';
+        if (!file_exists($sqlFile)) {
+            $message = '❌ database.sql not found.';
+        } else {
+            try {
+                $db  = getDB();
+                $sql = file_get_contents($sqlFile);
+                // Split on semicolons, skip empty
+                $statements = array_filter(
+                    array_map('trim', explode(';', $sql)),
+                    fn($s) => $s !== ''
+                );
+                $count = 0;
+                foreach ($statements as $s) {
+                    $db->exec($s);
+                    $count++;
+                }
+                $message = "✅ SQL executed successfully ($count statements). Database is ready!";
+                $success = true;
+            } catch (PDOException $e) {
+                $message = '❌ SQL Error: ' . htmlspecialchars($e->getMessage());
+            }
+        }
+    }
+}
+?>
