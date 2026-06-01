@@ -1,0 +1,10 @@
+# Solo Parent Profiling System — .htaccess
+# Place this file in the project root
+
+Options -Indexes
+
+# Deny direct access to sensitive directories
+<FilesMatch "\.(sql|log|md|json|lock|env)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
