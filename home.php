@@ -187,3 +187,26 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
+    
+    <!-- ===== RECENT REGISTRATIONS ===== -->
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-clock-history me-2 text-primary"></i>Recent Registrations</span>
+            <a href="<?= BASE_URL ?>/modules/parents/list.php" class="btn btn-sm btn-outline-primary">
+                View All <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>SP-ID</th>
+                            <th>Full Name</th>
+                            <th>Zone/Purok</th>
+                            <th>Category</th>
+                            <th class="text-center">Children</th>
+                            <th>Status</th>
+                            <th>Registered</th>
+                            <th></th>
+                        </tr>
