@@ -72,3 +72,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Setup | <?= APP_NAME ?></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-light">
+<div class="container py-5" style="max-width:600px;">
+    <div class="text-center mb-4">
+        <i class="bi bi-people-fill text-primary" style="font-size:3rem;"></i>
+        <h2 class="fw-bold mt-2"><?= APP_NAME ?></h2>
+        <p class="text-muted">First-Time Setup Utility</p>
+    </div>
+
+    <?php if ($message): ?>
+    <div class="alert alert-<?= $success ? 'success' : 'danger' ?> mb-4">
+        <?= $message ?>
+    </div>
+    <?php endif; ?>
+
+    <!-- ===== Step 1: Database ===== -->
+    <div class="card mb-3">
+        <div class="card-header fw-bold">
+            <i class="bi bi-database me-2"></i>Step 1 — Initialize Database
+        </div>
+        <div class="card-body">
+            <p class="small text-muted">
+                This will run <code>database.sql</code> and create all tables + sample data.
+                Make sure you have configured <code>includes/config.php</code> first.
+            </p>
+            <form method="POST">
+                <input type="hidden" name="action" value="run_sql">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-play-circle me-1"></i> Run Database Setup
+                </button>
+            </form>
+        </div>
+    </div>
