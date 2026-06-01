@@ -147,3 +147,43 @@ require_once __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </div>
+        
+        <!-- Zone/Purok Breakdown -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="bi bi-geo-alt me-2 text-success"></i>By Zone/Purok
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-sm mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Zone/Purok</th>
+                                    <th class="text-center">Count</th>
+                                    <th style="width:40%">Distribution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($zones as $zone): ?>
+                                <?php $pct = $stats['total'] > 0 ? round($zone['total'] / $stats['total'] * 100) : 0; ?>
+                                <tr>
+                                    <td class="small"><?= e($zone['name']) ?></td>
+                                    <td class="text-center fw-bold"><?= $zone['total'] ?></td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="progress flex-grow-1" style="height:8px;">
+                                                <div class="progress-bar bg-success" style="width:<?= $pct ?>%"></div>
+                                            </div>
+                                            <small class="text-muted"><?= $pct ?>%</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
