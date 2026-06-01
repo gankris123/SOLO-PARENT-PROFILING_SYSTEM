@@ -49,3 +49,59 @@ $recent = $db->query(
 $pageTitle = 'Dashboard';
 require_once __DIR__ . '/includes/header.php';
 ?>
+
+<main>
+<div class="container-fluid page-wrapper">
+
+    <!-- Page Header -->
+    <div class="page-header d-flex justify-content-between align-items-start flex-wrap gap-2">
+        <div>
+            <h2><i class="bi bi-speedometer2 me-2 text-primary"></i>Dashboard</h2>
+        </div>
+    </div>
+
+    <!-- ===== STAT CARDS ===== -->
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="stat-card bg-primary h-100">
+                <div class="stat-value"><?= number_format($stats['total']) ?></div>
+                <div class="stat-label">Total Solo Parents</div>
+                <i class="bi bi-people stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="stat-card bg-success h-100">
+                <div class="stat-value"><?= number_format($stats['active']) ?></div>
+                <div class="stat-label">Active</div>
+                <i class="bi bi-person-check stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="stat-card bg-warning h-100">
+                <div class="stat-value"><?= number_format($stats['pending']) ?></div>
+                <div class="stat-label">Pending</div>
+                <i class="bi bi-hourglass-split stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="stat-card bg-danger h-100">
+                <div class="stat-value"><?= number_format($stats['inactive']) ?></div>
+                <div class="stat-label">Inactive</div>
+                <i class="bi bi-person-dash stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="stat-card bg-info h-100">
+                <div class="stat-value"><?= number_format($stats['children']) ?></div>
+                <div class="stat-label">Total Children</div>
+                <i class="bi bi-emoji-smile stat-icon"></i>
+            </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+            <div class="stat-card bg-purple h-100">
+                <div class="stat-value"><?= count($categories) ?></div>
+                <div class="stat-label">Categories</div>
+                <i class="bi bi-tags stat-icon"></i>
+            </div>
+        </div>
+    </div>
