@@ -105,3 +105,45 @@ require_once __DIR__ . '/includes/header.php';
             </div>
         </div>
     </div>
+    
+    <!-- ===== MAIN CONTENT ROW ===== -->
+    <div class="row g-3 mb-4">
+
+        <!-- Category Breakdown -->
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span><i class="bi bi-pie-chart me-2 text-primary"></i>By Category</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-sm mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th class="text-center">Count</th>
+                                    <th style="width:40%">Distribution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($categories as $cat): ?>
+                                <?php $pct = $stats['total'] > 0 ? round($cat['total'] / $stats['total'] * 100) : 0; ?>
+                                <tr>
+                                    <td class="small"><?= e($cat['name']) ?></td>
+                                    <td class="text-center fw-bold"><?= $cat['total'] ?></td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-1">
+                                            <div class="progress flex-grow-1" style="height:8px;">
+                                                <div class="progress-bar bg-primary" style="width:<?= $pct ?>%"></div>
+                                            </div>
+                                            <small class="text-muted"><?= $pct ?>%</small>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
