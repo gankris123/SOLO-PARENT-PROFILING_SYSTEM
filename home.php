@@ -210,3 +210,36 @@ require_once __DIR__ . '/includes/header.php';
                             <th>Registered</th>
                             <th></th>
                         </tr>
+                        </thead>
+                    <tbody>
+                    <?php if (empty($recent)): ?>
+                        <tr><td colspan="8" class="text-center text-muted py-4">No records yet.</td></tr>
+                    <?php else: ?>
+                        <?php foreach ($recent as $row): ?>
+                        <tr>
+                            <td><span class="badge bg-primary-subtle text-primary"><?= e($row['sp_id']) ?></span></td>
+                            <td class="fw-semibold">
+                                <?= e($row['last_name'] . ', ' . $row['first_name']) ?>
+                            </td>
+                            <td><?= e('Purok ' . $row['zone_name']) ?></td>
+                            <td class="small text-muted"><?= e($row['category_name']) ?></td>
+                            <td class="text-center"><?= (int)$row['num_children'] ?></td>
+                            <td><?= statusBadge($row['status']) ?></td>
+                            <td class="small text-muted"><?= formatDate($row['date_registered'] ?? $row['created_at']) ?></td>
+                            <td>
+                                <a href="<?= BASE_URL ?>/modules/parents/view.php?id=<?= $row['id'] ?>"
+                                   class="btn btn-sm btn-outline-secondary py-0">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
