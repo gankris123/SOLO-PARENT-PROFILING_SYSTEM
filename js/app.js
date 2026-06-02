@@ -64,3 +64,35 @@ $(function () {
             reader.readAsDataURL(file);
         });
     }
+    
+    /* ---- Confirm delete ---- */
+    document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            if (!confirm('Are you sure you want to delete this record? This action cannot be undone.')) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    /* ---- Auto-dismiss alerts after 5 s ---- */
+    setTimeout(() => {
+        document.querySelectorAll('.alert.alert-dismissible').forEach(el => {
+            const bsAlert = bootstrap.Alert.getOrCreateInstance(el);
+            bsAlert.close();
+        });
+    }, 5000);
+});
+
+/* ---- Utility: show inline alert ---- */
+function showAlert(type, message, container = '#alertContainer') {
+    const html = `
+        <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>`;
+    const el = document.querySelector(container);
+    if (el) {
+        el.innerHTML = html;
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+}
