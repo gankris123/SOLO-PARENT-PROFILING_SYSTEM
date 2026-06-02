@@ -25,3 +25,42 @@ $(function () {
             dom: '<"row align-items-center mb-2"<"col-sm-6"l><"col-sm-6"f>>rtip'
         });
     }
+    
+    /* ---- Bootstrap tooltips ---- */
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+        new bootstrap.Tooltip(el);
+    });
+
+    /* ---- Photo preview on file input ---- */
+    const photoInput = document.getElementById('photoInput');
+    if (photoInput) {
+        photoInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (!file) return;
+
+            // Validate type and size (2 MB)
+            const allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+            if (!allowed.includes(file.type)) {
+                showAlert('danger', 'Only JPG, PNG, GIF, or WEBP images are allowed.');
+                this.value = '';
+                return;
+            }
+            if (file.size > 2 * 1024 * 1024) {
+                showAlert('danger', 'Image must be 2 MB or smaller.');
+                this.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = e => {
+                const preview = document.getElementById('photoPreview');
+                const placeholder = document.getElementById('photoPlaceholder');
+                if (preview) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('d-none');
+                }
+                if (placeholder) placeholder.classList.add('d-none');
+            };
+            reader.readAsDataURL(file);
+        });
+    }
