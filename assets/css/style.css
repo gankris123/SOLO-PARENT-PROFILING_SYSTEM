@@ -30,3 +30,72 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+main {
+    flex: 1;
+}
+
+/* ----- Navbar customisation ----- */
+.navbar-brand {
+    font-size: 1.1rem;
+    letter-spacing: .3px;
+}
+
+.avatar-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .85rem;
+    border: 2px solid rgba(255,255,255,.4);
+}
+
+/* ----- Page wrapper ----- */
+.page-wrapper {
+    padding: 1.5rem 1rem;
+}
+
+/* ----- Page header ----- */
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-header h1, .page-header h2, .page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #1a1a2e;
+}
+
+.page-header .breadcrumb, .breadcrumb-typography {
+    font-size: .85rem;
+    letter-spacing: 0.02em;
+}
+
+/* ----- Cards ----- */
+.card {
+    border: none;
+    border-radius: var(--sp-radius);
+    box-shadow: var(--sp-shadow);
+    background: var(--sp-card-bg);
+}
+
+.card-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    font-weight: 600;
+    padding: 1rem 1.25rem .75rem;
+}
+
+/* ----- Stat Cards (Dashboard) ----- */
+.stat-card {
+    border-radius: var(--sp-radius);
+    padding: 1.25rem 1.5rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--sp-transition), box-shadow var(--sp-transition);
+}
