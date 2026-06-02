@@ -99,3 +99,83 @@ main {
     overflow: hidden;
     transition: transform var(--sp-transition), box-shadow var(--sp-transition);
 }
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+
+.stat-card .stat-icon {
+    font-size: 2.8rem;
+    opacity: .25;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.stat-card .stat-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.stat-card .stat-label {
+    font-size: .85rem;
+    opacity: .85;
+    margin-top: .25rem;
+}
+
+.stat-card.bg-primary  { background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); }
+.stat-card.bg-success  { background: linear-gradient(135deg, #198754 0%, #146c43 100%); }
+.stat-card.bg-warning  { background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%); color: #333; }
+.stat-card.bg-warning .stat-icon { color: #333; }
+.stat-card.bg-info     { background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%); }
+.stat-card.bg-danger   { background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%); }
+.stat-card.bg-purple   { background: linear-gradient(135deg, #6f42c1 0%, #59339d 100%); }
+
+/* ----- Tables ----- */
+.table th {
+    font-size: .78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #6c757d;
+    border-bottom-width: 1px;
+    background: #f8f9fa;
+    padding: 0.875rem 0.75rem;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: .92rem;
+}
+
+.table-cell-muted {
+    color: #6c757d;
+}
+
+.table-gender {
+    font-size: .8rem;
+}
+
+.table-name {
+    font-size: .95rem;
+    letter-spacing: -0.01em;
+}
+
+.table-children {
+    font-size: .95rem;
+    color: #212529;
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(13,110,253,.04);
+}
+
+/* ----- Badges ----- */
+.badge {
+    font-weight: 500;
+    font-size: .78rem;
+    padding: .35em .65em;
+}
