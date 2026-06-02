@@ -96,3 +96,34 @@ function showAlert(type, message, container = '#alertContainer') {
         el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
+
+/* ---- Loading overlay ---- */
+function showLoading() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) { overlay.style.display = 'flex'; }
+}
+
+function hideLoading() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) { overlay.style.display = 'none'; }
+}
+
+/* ---- Export table to Excel (client-side via SheetJS) ---- */
+function exportToExcel(tableId, filename) {
+    showLoading();
+    try {
+        const wb  = XLSX.utils.book_new();
+        const ws  = XLSX.utils.table_to_sheet(document.getElementById(tableId));
+        XLSX.utils.book_append_sheet(wb, ws, 'Solo Parents');
+        XLSX.writeFile(wb, (filename || 'solo-parents') + '.xlsx');
+    } catch (err) {
+        showAlert('danger', 'Excel export failed: ' + err.message);
+    } finally {
+        hideLoading();
+    }
+}
+
+/* ---- Print report ---- */
+function printReport() {
+    window.print();
+}
