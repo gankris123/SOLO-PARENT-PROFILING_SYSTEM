@@ -1,0 +1,32 @@
+/* ============================================================
+   assets/css/style.css  —  Solo Parent Profiling System
+   ============================================================ */
+
+/* ----- CSS Variables ----- */
+:root {
+    --sp-primary:    #0d6efd;
+    --sp-primary-dk: #0a58ca;
+    --sp-success:    #198754;
+    --sp-warning:    #ffc107;
+    --sp-danger:     #dc3545;
+    --sp-bg:         #f4f6fb;
+    --sp-card-bg:    #ffffff;
+    --sp-sidebar-w:  260px;
+    --sp-radius:     .75rem;
+    --sp-shadow:     0 2px 12px rgba(13,110,253,.10);
+    --sp-transition: .2s ease;
+}
+
+/* ----- Base ----- */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--sp-bg);
+    color: #212529;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
