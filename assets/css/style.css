@@ -179,3 +179,74 @@ main {
     font-size: .78rem;
     padding: .35em .65em;
 }
+
+/* ----- Buttons ----- */
+.btn {
+    font-weight: 500;
+    border-radius: .5rem;
+    transition: all var(--sp-transition);
+}
+
+.btn-sm {
+    font-size: .8rem;
+}
+
+/* ----- Forms ----- */
+.form-label {
+    font-weight: 500;
+    font-size: .9rem;
+    color: #495057;
+}
+
+.filter-label {
+    font-weight: 600;
+    font-size: .85rem;
+    color: #495057;
+    letter-spacing: 0.01em;
+}
+
+.form-control, .form-select {
+    border-radius: .5rem;
+    border-color: #ced4da;
+    font-size: .92rem;
+    transition: border-color var(--sp-transition), box-shadow var(--sp-transition);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--sp-primary);
+    box-shadow: 0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+.section-divider {
+    font-weight: 700;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--sp-primary);
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--sp-primary);
+    margin-bottom: 1rem;
+}
+
+/* ----- Profile Photo Preview ----- */
+#photoPreview {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--sp-primary);
+    display: block;
+}
+
+.photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #e9ecef;
+    border: 3px dashed #ced4da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+    font-size: 2.5rem;
+}
