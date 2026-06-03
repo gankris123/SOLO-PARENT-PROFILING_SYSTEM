@@ -58,7 +58,8 @@ require_once __DIR__ . '/includes/config.php';
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
         }
- /* ----- Hardware-Accelerated Scroll Reveal Framework ----- */
+
+        /* ----- Hardware-Accelerated Scroll Reveal Framework ----- */
         .reveal-element {
             opacity: 0;
             transform: translateY(35px) scale(0.99);
@@ -323,7 +324,12 @@ require_once __DIR__ . '/includes/config.php';
             font-size: 0.82rem;
             color: rgba(255, 255, 255, 0.45);
         }
-          </style>
+
+        /* Utility Background Classes */
+        .bg-clear { background: var(--sp-bg); }
+    </style>
+
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -510,6 +516,7 @@ require_once __DIR__ . '/includes/config.php';
         </div>
     </div>
 </section>
+
 <section class="stats-strip text-white text-center">
     <div class="container">
         <div class="row g-4">
