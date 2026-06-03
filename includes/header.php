@@ -20,7 +20,7 @@ $pageTitle = $pageTitle ?? APP_NAME;
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
 <body>
-    
+
     <!-- ===== TOP NAVBAR ===== -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
     <div class="container-fluid">
@@ -90,3 +90,14 @@ $pageTitle = $pageTitle ?? APP_NAME;
         </div>
     </div>
 </nav>
+
+<!-- ===== FLASH MESSAGES ===== -->
+<?php $flash = getFlash(); if ($flash): ?>
+<div class="container-fluid mt-3">
+    <div class="alert alert-<?= $flash['type'] === 'error' ? 'danger' : e($flash['type']) ?> alert-dismissible fade show" role="alert">
+        <i class="bi bi-<?= $flash['type'] === 'success' ? 'check-circle' : 'exclamation-triangle' ?>-fill me-2"></i>
+        <?= e($flash['message']) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+</div>
+<?php endif; ?>
