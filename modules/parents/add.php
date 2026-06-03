@@ -220,3 +220,60 @@ require_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                 </div>
+                
+                <!-- Address & Contact -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="bi bi-geo-alt me-2 text-success"></i>Address & Contact
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label">Street / House No. <span class="text-danger">*</span></label>
+                                <input type="text" name="address_street" class="form-control"
+                                       value="<?= e($data['address_street'] ?? '') ?>"
+                                       placeholder="e.g. 123 Rizal Street" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Zone / Purok <span class="text-danger">*</span></label>
+                                <select name="zone_id" class="form-select" required>
+                                    <option value="">-- Select Zone/Purok --</option>
+                                    <?php foreach ($zones as $zone): ?>
+                                    <option value="<?= $zone['id'] ?>"
+                                            <?= ($data['zone_id'] ?? 0) == $zone['id'] ? 'selected' : '' ?>>
+                                        <?= e($zone['name']) ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Municipality / City</label>
+                                <input type="text" name="municipality" class="form-control"
+                                       value="<?= e($data['municipality'] ?? 'Your Municipality') ?>">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Province</label>
+                                <input type="text" name="province" class="form-control"
+                                       value="<?= e($data['province'] ?? 'Your Province') ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Contact Number <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                                    <input type="tel" name="contact_number" class="form-control"
+                                           value="<?= e($data['contact_number'] ?? '') ?>"
+                                           placeholder="09XXXXXXXXX" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" name="email" class="form-control"
+                                           value="<?= e($data['email'] ?? '') ?>"
+                                           placeholder="optional">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
