@@ -30,3 +30,56 @@ if (!defined('BASE_URL')) {
     if ($basePath == '/') $basePath = '';
     define('BASE_URL', $protocol . $host . $basePath);
 }
+
+// --- Database Settings ---  ← Edit these to match your server
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'solo_parent_db');
+define('DB_USER', 'root');
+define('DB_PASS', '');          // Your MySQL password
+define('DB_CHAR', 'utf8mb4');
+
+// --- Session Security ---
+define('SESSION_NAME',    'spps_session');
+define('SESSION_TIMEOUT', 3600); // 1 hour in seconds
+
+// --- File Upload ---
+define('UPLOAD_DIR',      __DIR__ . '/../uploads/');
+define('UPLOAD_MAX_SIZE', 2 * 1024 * 1024); // 2 MB
+define('ALLOWED_TYPES',   ['image/jpeg', 'image/png', 'image/gif', 'image/webp']);
+
+// --- Pagination ---
+define('RECORDS_PER_PAGE', 10);
+
+// ============================================================
+// Database Connection using PDO
+// ============================================================
+function getDB(): PDO {
+    static $pdo = null;         // Singleton — only connect once
+
+    if ($pdo === null) {
+        $dsn = sprintf(
+            'mysql:host=%s;dbname=%s;charset=%s',
+            DB_HOST, DB_NAME, DB_CHAR
+        );
+        $options = [
+            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES   => false,
+        ];
+        try {
+            $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            // Show friendly error — never expose raw PDO message in production
+            die('<div style="font-family:sans-serif;padding:40px;color:#c0392b;">
+                    <h2>Database Connection Failed</h2>
+                    <p>Please check your database settings in <code>includes/config.php</code>.</p>
+                    <p><small>' . htmlspecialchars($e->getMessage()) . '</small></p>
+                 </div>');
+        }
+    }
+    return $pdo;
+}
+
+// ============================================================
+// Helper Functions
+// ============================================================
