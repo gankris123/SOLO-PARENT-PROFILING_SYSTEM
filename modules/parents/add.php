@@ -129,3 +129,94 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $pageTitle = 'Add Solo Parent';
 require_once __DIR__ . '/../../includes/header.php';
 ?>
+
+<main>
+<div class="container-fluid page-wrapper">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h2><i class="bi bi-person-plus-fill me-2 text-primary"></i>Add Solo Parent</h2>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/index.php">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="<?= BASE_URL ?>/modules/parents/list.php">Solo Parents</a></li>
+                <li class="breadcrumb-item active">Add New</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Validation Errors -->
+    <?php if (!empty($errors)): ?>
+    <div class="alert alert-danger">
+        <strong><i class="bi bi-exclamation-triangle me-2"></i>Please fix the following errors:</strong>
+        <ul class="mb-0 mt-1">
+            <?php foreach ($errors as $err): ?>
+            <li><?= e($err) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php endif; ?>
+
+    <form method="POST" enctype="multipart/form-data" novalidate>
+
+        <div class="row g-3">
+            <!-- ===== LEFT: MAIN FORM ===== -->
+            <div class="col-lg-8">
+
+                <!-- Personal Information -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="bi bi-person me-2 text-primary"></i>Personal Information
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                <input type="text" name="last_name" class="form-control"
+                                       value="<?= e($data['last_name'] ?? '') ?>" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                <input type="text" name="first_name" class="form-control"
+                                       value="<?= e($data['first_name'] ?? '') ?>" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Middle Name</label>
+                                <input type="text" name="middle_name" class="form-control"
+                                       value="<?= e($data['middle_name'] ?? '') ?>">
+                            </div>
+                            <div class="col-md-1">
+                                <label class="form-label">Suffix</label>
+                                <input type="text" name="suffix" class="form-control"
+                                       value="<?= e($data['suffix'] ?? '') ?>" placeholder="Jr.">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Gender <span class="text-danger">*</span></label>
+                                <select name="gender" class="form-select" required>
+                                    <option value="">-- Select --</option>
+                                    <?php foreach (['Male','Female','Other'] as $g): ?>
+                                    <option value="<?= $g ?>" <?= ($data['gender'] ?? '') === $g ? 'selected' : '' ?>>
+                                        <?= $g ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Birth Date <span class="text-danger">*</span></label>
+                                <input type="date" name="birth_date" class="form-control"
+                                       value="<?= e($data['birth_date'] ?? '') ?>" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Civil Status <span class="text-danger">*</span></label>
+                                <select name="civil_status" class="form-select" required>
+                                    <option value="">-- Select --</option>
+                                    <?php foreach (['Single','Widowed','Separated','Divorced','Annulled'] as $cs): ?>
+                                    <option value="<?= $cs ?>" <?= ($data['civil_status'] ?? '') === $cs ? 'selected' : '' ?>>
+                                        <?= $cs ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
