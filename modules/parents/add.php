@@ -277,3 +277,126 @@ require_once __DIR__ . '/../../includes/header.php';
                         </div>
                     </div>
                 </div>
+                
+                <!-- Socio-Economic -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="bi bi-briefcase me-2 text-warning"></i>Socio-Economic Information
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Occupation <span class="text-danger">*</span></label>
+                                <input type="text" name="occupation" class="form-control"
+                                       value="<?= e($data['occupation'] ?? '') ?>"
+                                       placeholder="e.g. Vendor, Driver, Teacher" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Monthly Income (₱)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">₱</span>
+                                    <input type="number" name="monthly_income" class="form-control"
+                                           value="<?= e($data['monthly_income'] ?? '0') ?>"
+                                           min="0" step="0.01">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Solo Parent Category <span class="text-danger">*</span></label>
+                                <select name="category_id" class="form-select" required>
+                                    <option value="">-- Select Category --</option>
+                                    <?php foreach ($categories as $cat): ?>
+                                    <option value="<?= $cat['id'] ?>"
+                                            <?= ($data['category_id'] ?? 0) == $cat['id'] ? 'selected' : '' ?>>
+                                        <?= e($cat['name']) ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Number of Children <span class="text-danger">*</span></label>
+                                <input type="number" name="num_children" class="form-control"
+                                       value="<?= e($data['num_children'] ?? '1') ?>"
+                                       min="1" max="20" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registration Info -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="bi bi-card-text me-2 text-info"></i>Registration Details
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label class="form-label">SP ID Card Number</label>
+                                <input type="text" name="id_number" class="form-control"
+                                       value="<?= e($data['id_number'] ?? '') ?>"
+                                       placeholder="If already issued">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Date Registered</label>
+                                <input type="date" name="date_registered" class="form-control"
+                                       value="<?= e($data['date_registered'] ?? date('Y-m-d')) ?>">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Status</label>
+                                <select name="status" class="form-select">
+                                    <?php foreach (['Active','Pending','Inactive'] as $st): ?>
+                                    <option value="<?= $st ?>" <?= ($data['status'] ?? 'Active') === $st ? 'selected' : '' ?>>
+                                        <?= $st ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Remarks / Notes</label>
+                                <textarea name="remarks" class="form-control" rows="3"
+                                          placeholder="Any additional information…"><?= e($data['remarks'] ?? '') ?></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.col-lg-8 -->
+
+            <!-- ===== RIGHT: PHOTO ===== -->
+            <div class="col-lg-4">
+                <div class="card mb-3 sticky-top" style="top:80px;">
+                    <div class="card-header">
+                        <i class="bi bi-image me-2 text-primary"></i>Photo
+                    </div>
+                    <div class="card-body text-center">
+                        <!-- Placeholder -->
+                        <div id="photoPlaceholder" class="photo-placeholder mx-auto mb-3">
+                            <i class="bi bi-person-bounding-box"></i>
+                        </div>
+                        <!-- Preview (hidden until file chosen) -->
+                        <img id="photoPreview" src="" alt="Photo Preview"
+                             class="d-none mx-auto mb-3">
+
+                        <input type="file" id="photoInput" name="photo"
+                               accept="image/jpeg,image/png,image/gif,image/webp"
+                               class="form-control form-control-sm">
+                        <div class="form-text">JPG, PNG, GIF, or WEBP. Max 2 MB.</div>
+                    </div>
+
+                    <div class="card-footer bg-transparent d-flex gap-2">
+                        <button type="submit" class="btn btn-primary flex-grow-1">
+                            <i class="bi bi-save me-1"></i> Save Record
+                        </button>
+                        <a href="<?= BASE_URL ?>/modules/parents/list.php"
+                           class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.row -->
+
+    </form>
+</div>
+</main>
+
+<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
